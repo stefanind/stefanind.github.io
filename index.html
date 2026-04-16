@@ -175,7 +175,7 @@
     <p class="hero-eyebrow">Seattle, WA · M.S. Data Science · Graduating June 2026</p>
     <h1 class="hero-name">Stefan<br><em>Indic</em></h1>
     <p class="hero-bio">
-      I build ML systems end-to-end — from writing custom CUDA kernels and training GPT-scale models from scratch, to shipping production ETL pipelines and explainable ML for real infrastructure decisions. Currently finishing my M.S. in Data Science at Seattle University.
+      I build machine learning systems end to end, spanning model research, training, deployment, and decision-focused analytics. My work includes experimenting with efficient transformer training, building ML deployment systems, and creating production data pipelines and explainable models for real infrastructure decisions. I am currently finishing my M.S. in Data Science at Seattle University.
     </p>
     <div class="role-pills">
       <span class="role-pill">ML Engineer</span>
@@ -197,51 +197,54 @@
     <div class="about-grid">
       <div>
         <div class="about-text">
-          <p>I work across the full ML stack. On the systems side, I've implemented custom CUDA SGEMM kernels, built distributed training infrastructure with PyTorch DDP, and profiled GPU utilization on A100s. On the applied side, I've built production-grade ETL pipelines, engineered features from messy real-world data, and shipped interpretable models for infrastructure decisions at Tacoma Power.</p>
-          <p>My background is unconventional — I studied philosophy with distinction at UBC before moving into data science. That training sharpened how I reason under uncertainty, communicate ambiguous findings, and think carefully about what a model is actually claiming.</p>
-          <p>I'm pursuing roles where rigor matters: the kind where compute budgets are real constraints, where insight discovery from data drives decisions, or where your model output informs a decision that has consequences.</p>
+          <p>My main interests sit at the intersection of machine learning research, systems, and applied decision-making. On the research side, I am especially interested in knowledge distillation and representational learning: how models acquire useful internal structure, and how that structure can be transferred more efficiently to new models. Long term, I want to better understand how knowledge is formed inside neural networks and how training can be made more efficient through better objectives, teacher-student methods, and possibly better architectures.</p>
+          <p>I am equally drawn to applied ML work where the output matters. I enjoy building systems that take messy, real data and turn it into something reusable, interpretable, and useful for making decisions. My work has included building production data pipelines, designing reusable schemas and feature frameworks, extracting signal from unstructured text, and developing explainable models for decision-making.</p>
+          <p>My background is unconventional: before moving into data science, I studied philosophy at UBC. That training shaped how I reason under uncertainty, communicate ambiguous findings, and think carefully and critically about what a model is actually claiming. It is a big part of why I am drawn to work where rigor matters—whether that means improving training efficiency, building reliable ML systems, or producing analyses that inform decisions with real consequences.</p>
           <p style="margin-top: 1.5rem;">
-            If you want to know how I got here — <a href="about.pdf" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">read this.</a>
+            To know more about my path into ML — <a href="about.pdf" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">read this.</a>
           </p>
         </div>
         <div class="skills-list">
           <span class="skill-tag">Python</span>
           <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">CUDA</span>
+          <span class="skill-tag">CUDA/C++</span>
           <span class="skill-tag">SQL</span>
           <span class="skill-tag">R</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Git</span>
           <span class="skill-tag">scikit-learn</span>
           <span class="skill-tag">NLP</span>
           <span class="skill-tag">Snowflake</span>
-          <span class="skill-tag">Snowpark ML</span>
           <span class="skill-tag">AWS</span>
-          <span class="skill-tag">PySpark</span>
-          <span class="skill-tag">Spark</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">MLflow</span>
+          <span class="skill-tag">Prefect</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">CI/CD</span>
           <span class="skill-tag">Hadoop</span>
-          <span class="skill-tag">Tableau</span>
-          <span class="skill-tag">DDP</span>
+          <span class="skill-tag">Spark</span>
         </div>
       </div>
       <div class="sidebar">
         <div class="stat-card">
           <div class="stat-number">5×</div>
-          <div class="stat-label">Training throughput (GPT-2 from scratch)</div>
+          <div class="stat-label">TRAINING THROUGHPUT (DISTRIBUTED TRANSFORMER TRAINING)</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">41→97%</div>
-          <div class="stat-label">GPU utilization on A100</div>
+          <div class="stat-label">A100 GPU UTILIZATION</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">1.2→44%</div>
-          <div class="stat-label">of cuBLAS performance</div>
+          <div class="stat-number">$15M</div>
+          <div class="stat-label">INSPECTION PROGRAM OPERATIONALIZED</div>
         </div>
         <div class="info-card">
           <span>Currently</span>
           M.S. Data Science · Seattle University
         </div>
         <div class="info-card">
-          <span>Previously</span>
-          B.A. Philosophy with Distinction · UBC
+          <span>RESEARCH</span>
+          Knowledge Distillation · Representational Priors
         </div>
       </div>
     </div>
@@ -268,11 +271,12 @@
           <div class="timeline-role">Machine Learning Engineer</div>
           <div class="timeline-org">Tacoma Power · Seattle University MSDS Capstone</div>
           <ul class="timeline-bullets">
-            <li>EDA on 12 years of ~160K utility pole inspections to identify statistical drivers of rejection.</li>
-            <li>ETL pipeline processing 367 Excel workbooks (904 sheets) into ~60K validated records via Python → Snowflake → Snowpark ML.</li>
-            <li>40+ engineered features combining ANSI pole standards, inspection measurements, and NLP-extracted degradation signals from inspector comments.</li>
-            <li>XGBoost with SHAP explainability to quantify structural drivers of pole rejection and establish a consistent engineering decision standard.</li>
-            <li>Tableau geospatial dashboards to visualize rejection hotspots and infrastructure risk patterns.</li>
+            <li>Architected Tacoma Power’s first reusable analytics and ML system for 13 years of previously unused pole inspection data, unlocking value from a $15M third-party inspection program that had not been operationalized.</li>
+            <li>Built the first production data pipeline for pole inspection records, writing ~8,000 lines of Python to standardize messy historical data and automate delivery from SharePoint to Snowflake to Tableau.</li>
+            <li>Defined the canonical inspection data schema and feature engineering framework that allows future records to pass through the same system for repeatable cleaning, modeling, retraining, and stakeholder reporting.</li>
+            <li>Developed NLP extraction from inspector comments to recover failure-mode and degradation signals from unstructured field notes, improving both predictive performance and business interpretability.</li>
+            <li>Created an explainable ML framework using XGBoost + SHAP that surfaced the leading drivers of pole rejection and enabled high-level summary statistics by region and subarea geography for stakeholders.</li>
+            <li>Implemented LangGraph orchestration and logging to guide execution, improve reliability, and reduce long-term dependence on the original developer by making the workflow usable for non-technical teams.</li>
           </ul>
         </div>
       </div>
@@ -298,7 +302,7 @@
           <div class="timeline-role">M.S. Data Science</div>
           <div class="timeline-org">Seattle University · Seattle, WA</div>
           <ul class="timeline-bullets">
-            <li>Graduating June 2026. Industry capstone with Tacoma Power on predictive maintenance for electrical infrastructure.</li>
+            <li>Graduating June 2026. Industry capstone with Tacoma Power on architecting analytics pipeline and ML interpretability for electrical infrastructure.</li>
           </ul>
         </div>
       </div>
@@ -345,6 +349,19 @@
         </div>
       </a>
 
+      <a href="https://github.com/stefanind/beginner-ML-deployment" target="_blank" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">ML Deployment System</div>
+          <span class="project-lang">FastAPI · MLflow · Docker</span>
+        </div>
+        <div class="project-desc">Built an end-to-end ML deployment project covering training, API serving, experiment tracking, containerization, monitoring, orchestration, load testing, and CI. Deployed a FastAPI scikit-learn service with MLflow, Docker, Prometheus, Locust, Prefect, and GitHub Actions to demonstrate lifecycle management, observability, and workflow automation.</div>
+        <div class="project-highlights">
+          <span class="project-highlight">Production-style ML</span>
+          <span class="project-highlight">Monitoring + CI</span>
+          <span class="project-highlight">End-to-end deployment</span>
+        </div>
+      </a>
+
       <a href="https://github.com/stefanind/World-Model-DreamerV3" target="_blank" class="project-card">
         <div class="project-card-top">
           <div class="project-name">DreamerV3 — World Model (WIP)</div>
@@ -357,9 +374,7 @@
         </div>
       </a>
 
-      <div class="project-card" style="cursor: default; border-style: dashed; align-items: center; justify-content: center; text-align: center; min-height: 120px;">
-        <span style="font-family: var(--mono); font-size: 12px; color: var(--ink-faint);">Representational Priors Research coming June 2026</span>
-      </div>
+
 
     </div>
     <div style="margin-top: 1.5rem; text-align: center;">
