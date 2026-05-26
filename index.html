@@ -75,6 +75,23 @@
   .about-grid { display: grid; grid-template-columns: 1fr 270px; gap: 3rem; align-items: start; }
   .about-text { font-size: 16px; color: var(--ink-muted); }
   .about-text p + p { margin-top: 1rem; }
+
+  .about-block {
+    margin-bottom: 1.75rem;
+  }
+
+  .about-mini-label {
+    margin-bottom: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .about-block p:last-child {
+    margin-bottom: 0;
+  }
   .skills-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 1.5rem; }
   .skill-tag { font-family: var(--mono); font-size: 11px; padding: 4px 10px; border: 1px solid var(--border-strong); border-radius: 2px; color: var(--ink-muted); background: var(--surface); }
   .sidebar { display: flex; flex-direction: column; gap: 1rem; }
@@ -133,16 +150,6 @@
 
   footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.04em; }
 
-  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(26,26,24,0.55); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 2rem; }
-  .modal-overlay.active { display: flex; }
-  .modal { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem; max-width: 660px; width: 100%; max-height: 82vh; overflow-y: auto; position: relative; }
-  .modal-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; cursor: pointer; font-size: 18px; color: var(--ink-muted); font-family: var(--mono); }
-  .modal-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
-  .modal-title { font-family: var(--serif); font-size: 26px; margin-bottom: 1.5rem; line-height: 1.2; }
-  .modal-body { font-size: 15px; color: var(--ink-muted); line-height: 1.8; }
-  .modal-body p + p { margin-top: 1rem; }
-  .modal-body h3 { font-family: var(--serif); font-size: 19px; margin: 1.5rem 0 0.5rem; color: var(--ink); }
-  .modal-body code { font-family: var(--mono); font-size: 13px; background: var(--surface); padding: 1px 5px; border-radius: 2px; border: 1px solid var(--border); }
 
   @media (max-width: 640px) {
     nav { padding: 0 1rem; }
@@ -162,9 +169,10 @@
   <span class="nav-logo">stefan.indic</span>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#resume">Resume</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#videos">Videos</a></li>
+    <li><a href="#blog">Writing</a></li>
+    <li><a href="#videos">Lectures</a></li>
+    <li><a href="#resume">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -175,18 +183,20 @@
     <h1 class="hero-name">Stefan<br><em>Indic</em></h1>
 
     <p class="hero-bio">
-      I am a Data Scientist and ML Engineer focused on building end-to-end machine learning systems: from messy real-world data pipelines and statistical modeling to explainable models, deployment workflows, and performance optimization. My work spans production analytics for decision-making, transformer and world model training experiments, ML deployment systems, research-informed knowledge distillation, and CUDA kernel optimization.
+      I’m finishing my Master’s in Data Science, where I’ve focused on both experimentation and AI/ML. I like working on problems where data has to turn into a real decision, whether that means designing an A/B test, building a machine learning pipeline, or digging into how a model works under the hood.
     </p>
 
     <div class="role-pills">
-      <span class="role-pill">Data Scientist</span>
-      <span class="role-pill">ML Engineer</span>
+      <span class="role-pill">Experimentation</span>
+      <span class="role-pill">Applied ML</span>
+      <span class="role-pill">AI Systems</span>
     </div>
 
     <div class="hero-links">
-      <a href="#resume" class="btn btn-primary">Resume ↓</a>
-      <a href="https://github.com/stefanind" target="_blank" class="btn btn-outline">GitHub →</a>
-      <a href="https://linkedin.com/in/stefanindic" target="_blank" class="btn btn-outline">LinkedIn →</a>
+      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+      <a href="#resume" class="btn btn-outline">Resume ↓</a>
+      <a href="https://github.com/stefanind" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub →</a>
+      <a href="https://linkedin.com/in/stefanindic" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn →</a>
       <a href="#contact" class="btn btn-outline">Contact →</a>
     </div>
   </div>
@@ -198,21 +208,46 @@
     <div class="about-grid">
       <div>
         <div class="about-text">
-          <p>
-            My main interests sit at the intersection of statistical decision-making, machine learning, and systems. I enjoy building tools that take messy, real data and turn it into something reusable, interpretable, and useful for making decisions. My work has included production data pipelines, reusable schemas and feature frameworks, unstructured text extraction, explainable modeling, and deployment-oriented ML workflows.
-          </p>
 
-          <p>
-            I am also interested in machine learning research, especially knowledge distillation and representational learning: how models acquire useful internal structure, and how that structure can be transferred more efficiently to new models. Long term, I want to better understand how knowledge is formed inside neural networks and how training can be made more efficient through better objectives, teacher-student methods, and improved architectures.
-          </p>
+          <div class="about-block">
+            <p class="about-mini-label">What I Build</p>
+            <p>
+              My main interests sit at the intersection of statistical decision-making, machine learning, and systems. I like building tools that take messy, real data and turn it into something reusable, interpretable, and useful for making decisions. 
+            </p>
 
-          <p>
-            My background is unconventional: before moving into data science, I studied philosophy at UBC. That training shaped how I reason under uncertainty, communicate ambiguous findings, and think carefully about what a model is actually claiming. It is a big part of why I am drawn to work where rigor matters, whether that means improving training efficiency, building reliable ML systems, or producing analyses that inform decisions with real consequences.
-          </p>
+            <p>
+              This includes experimentation, production data pipelines, reusable schemas, unstructured text extraction, explainable modeling, and deployment-oriented ML workflows.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <p class="about-mini-label">Research Thread</p>
+            <p>
+              I am also interested in AI research at the intersection of knowledge distillation and mechanistic interpretability. To transfer knowledge effectively from one model to another, I first need to understand what knowledge is represented inside the model, how it is being used, and which signals are most useful to pass on.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <p class="about-mini-label">How I Think</p>
+            <p>
+              My background is unconventional. Before moving into data science, I studied philosophy at UBC, which shaped how I reason under uncertainty, communicate ambiguous findings, and think critically about what a model or experiment is actually claiming.
+            </p>
+
+            <p>
+              I also bring experience in psychology, neuroscience, and teaching, which helps me think about how people perceive information, make decisions, and learn complex ideas.
+            </p>
+
+            <p>
+              This combination is what draws me to work where rigor and communication both matter: designing experiments, building reliable ML systems, interpreting model behavior, and helping teams turn evidence into better decisions.
+            </p>
+          </div>
+
           <p style="margin-top: 1.5rem;">
-            To know more about my path into ML — <a href="About Me.pdf" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">read this.</a>
+            To know more about my path into ML —
+            <a href="About Me.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">read this.</a>
           </p>
         </div>
+
         <div class="skills-list">
           <span class="skill-tag">Python</span>
           <span class="skill-tag">PyTorch</span>
@@ -235,6 +270,7 @@
           <span class="skill-tag">Tableau</span>
         </div>
       </div>
+
       <div class="sidebar">
         <div class="stat-card">
           <div class="stat-number">$15M</div>
@@ -263,7 +299,7 @@
 
         <div class="info-card">
           <span>Research</span>
-          Knowledge Distillation · Representational Learning · Efficient Training
+          Knowledge Distillation · Mechanistic Interpretability 
         </div>
 
         <div class="info-card">
@@ -279,6 +315,173 @@
     </div>
   </div>
 </section>
+
+
+
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Projects</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">Tacoma Power ML Analytics Pipeline</div>
+          <span class="project-lang">Python · XGBoost · SHAP</span>
+        </div>
+
+        <div class="project-desc">
+          Architected an end-to-end ML and analytics pipeline for utility pole inspection data, spanning SharePoint ingestion, data cleaning, NLP comment extraction, feature engineering, modeling, SHAP explainability, Snowflake publishing, and Tableau reporting.
+        </div>
+
+        <div class="project-highlights">
+          <span class="project-highlight">Private client project</span>
+          <span class="project-highlight">43% of rejections linked to pole-top deterioration</span>
+          <span class="project-highlight">~80% recurring issue resolution via LangGraph</span>
+        </div>
+      </div>
+
+      <a href="https://github.com/stefanind/GPT" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">Distributed GPT-2 Training (124M)</div>
+          <span class="project-lang">PyTorch · CUDA</span>
+        </div>
+        <div class="project-desc">GPT-2 Small implemented from scratch with modern LLM upgrades — SwiGLU, MoE, RMSNorm, KV-cache, GQA/MQA. Distributed training via PyTorch DDP on the 10B-token FineWeb-Edu dataset.</div>
+        <div class="project-highlights">
+          <span class="project-highlight">5× throughput via bfloat16, TF32, FlashAttention, fused AdamW</span>
+          <span class="project-highlight">41% → 97% GPU utilization (A100)</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/stefanind/CUDA-SGEMM" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">CUDA SGEMM Kernel Optimization</div>
+          <span class="project-lang">CUDA C++</span>
+        </div>
+        <div class="project-desc">Custom SGEMM kernels studying cuBLAS optimization strategies. Memory coalescing, shared-memory tiling, 2D thread block tiling, vectorized loads. Profiled with Nsight for memory bandwidth and occupancy.</div>
+        <div class="project-highlights">
+          <span class="project-highlight">1.2% → 44% of cuBLAS performance</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/stefanind/beginner-ML-deployment" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">ML Deployment System</div>
+          <span class="project-lang">FastAPI · MLflow · Docker</span>
+        </div>
+        <div class="project-desc">Built an end-to-end ML deployment project covering training, API serving, experiment tracking, containerization, monitoring, orchestration, load testing, and CI. Deployed a FastAPI scikit-learn service with MLflow, Docker, Prometheus, Locust, Prefect, and GitHub Actions to demonstrate lifecycle management, observability, and workflow automation.</div>
+        <div class="project-highlights">
+          <span class="project-highlight">Production-style ML</span>
+          <span class="project-highlight">Monitoring + CI</span>
+          <span class="project-highlight">End-to-end deployment</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/stefanind/World-Model-DreamerV3" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">DreamerV3 — World Model (WIP)</div>
+          <span class="project-lang">PyTorch</span>
+        </div>
+        <div class="project-desc">Implementing DreamerV3 from scratch in PyTorch — a model-based RL agent that learns a world model via RSSM and trains entirely in imagination. Partially built, paused while finishing grad school.</div>
+        <div class="project-highlights">
+          <span class="project-highlight">Model-based RL</span>
+          <span class="project-highlight">Work in progress</span>
+        </div>
+      </a>
+
+
+
+    </div>
+    <div style="margin-top: 1.5rem; text-align: center;">
+      <a href="https://github.com/stefanind" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View all projects on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="blog">
+  <div class="container">
+    <p class="section-label">Writing</p>
+    <div class="post-list">
+
+      <a
+        class="post-item"
+        href="https://www.linkedin.com/pulse/why-good-experimental-design-requires-philosophical-thinking-indic-ym76c/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="post-date">Published</span>
+        <div>
+          <div class="post-title">Why Good Experimental Design Requires Philosophical Thinking</div>
+          <div class="post-excerpt">
+            How rigorous experimentation depends on clear reasoning, careful assumptions, and knowing what a test can actually claim.
+          </div>
+        </div>
+        <span class="post-tag">experimentation</span>
+      </a>
+
+      <a
+        class="post-item"
+        href="https://www.linkedin.com/pulse/psychological-benefit-philosophical-training-stefan-indic-qbdwc/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="post-date">Published</span>
+        <div>
+          <div class="post-title">The Psychological Benefit of Philosophical Training</div>
+          <div class="post-excerpt">
+            A reflection on how philosophy builds ideological resilience.
+          </div>
+        </div>
+        <span class="post-tag">reflection</span>
+      </a>
+
+    </div>
+
+    <div class="blog-cta">
+      <p>// more writing coming soon</p>
+      <a
+        href="https://www.linkedin.com/in/stefanindic/recent-activity/articles/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-outline"
+      >
+        View all writing →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="videos">
+  <div class="container">
+    <p class="section-label">Lectures</p>
+    <p style="color: var(--ink-muted); margin-bottom: 2rem; max-width: 520px; font-size: 15px;">
+      A lecture series on LLM inference — detailed walkthroughs with code.
+    </p>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+
+      <a href="https://www.youtube.com/watch?v=J5XmPMfrEe4&t=2s" target="_blank" rel="noopener noreferrer" class="contact-card" style="align-items: flex-start; flex-direction: column; gap: 6px; padding: 1.25rem 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 16px;">▶</span>
+          <span style="font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint);">Lecture 1 · Transformer Review & Sampling Basics</span>
+        </div>
+        <div style="font-size: 15px; font-weight: 400; color: var(--ink);">LLM Inference Lecture 1: Transformer Review & Sampling Basics</div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-faint);">youtube.com · detailed walkthrough with code</div>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=gFTVfpfrgqI" target="_blank" rel="noopener noreferrer" class="contact-card" style="align-items: flex-start; flex-direction: column; gap: 6px; padding: 1.25rem 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 16px;">▶</span>
+          <span style="font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint);">Lecture 2 · KV Cache, Prefill vs Decode, GQA and MQA</span>
+        </div>
+        <div style="font-size: 15px; font-weight: 400; color: var(--ink);">LLM Inference Lecture 2: KV Cache, Prefill vs Decode, GQA and MQA</div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-faint);">youtube.com · detailed walkthrough with code</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 
 <section id="resume">
   <div class="container">
@@ -300,12 +503,9 @@
           <div class="timeline-role">Machine Learning Engineer</div>
           <div class="timeline-org">Tacoma Power · Seattle University MSDS Capstone</div>
           <ul class="timeline-bullets">
-            <li> Architected the first end-to-end reusable and automated Python ML + analytics reporting pipeline to identify the top drivers of utility pole rejections from historical and future incoming inspection data.</li>
-            <li>Incorporated LangGraph to orchestrate Excel ➝ SharePoint ➝ Snowflake ➝ Tableau ingestion, validation, auditing, feature engineering, modeling, SHAP explainability, and reporting, allowing a nontechnical user to fix ~80% of pipeline issues by talking with an AI agent.</li>
-            <li>Collaborated with onsite inspectors, engineers, managers, and senior stakeholders to validate inspection data assumptions, align model outputs with field and engineering workflows, and ensure dashboards answered senior management and C-suite reporting needs.</li>
-            <li>Defined robust config-driven cleaning and standardization workflows using Pandas, JSON policies, mapping csv files, fuzzy column matching, row filters, audit logs, validation contracts, and unit tests to make current and future messy inspection data reproducible and model-ready.</li>
-            <li>Implemented NLP-based inspection comment parsing with spaCy and regex rules across 33 comment categories, extracting decay, damage, hardware issues, access constraints, and other risk indicators from unstructured field notes.</li>
-            <li>Generated interpretable model artifacts with XGBoost + SHAP to identify rejection drivers, and prediction-level explanations, revealing pole top deterioration from decay and bird damage as the leading rejection driver behind 43% of regional rejections.</li>
+            <li>Architected an end-to-end ML + analytics pipeline for Tacoma Power to turn inspection data into infrastructure decision support.</li>
+            <li>Built an automated workflow across SharePoint, data cleaning, NLP extraction, XGBoost, SHAP, Snowflake, and Tableau.</li>
+            <li>Integrated LangGraph-guided auditing so nontechnical users could resolve most recurring pipeline issues independently.</li>  
           </ul>
         </div>
       </div>
@@ -315,9 +515,8 @@
           <div class="timeline-role">Data Analyst — AI / LLM Evaluation</div>
           <div class="timeline-org">DataAnnotation · Remote</div>
           <ul class="timeline-bullets">
-            <li>Analyzed 10+ frontier LLM response datasets across 7 task domains using NLP and statistical analysis, producing 5+ reports that identified chatbot performance patterns, model weaknesses, and findings such as Model A performing 13% worse than Model B across selected evaluations.</li>
-            <li>Designed 1,000+ Python, machine learning, software engineering, and statistics prompts for RLHF model evaluation workflows, supporting higher-quality feedback data for frontier LLM training and assessment.</li>
-            <li>Audited and validated other annotators’ work for correctness, instruction adherence, reasoning quality, and task alignment, finding that ~20% of workers missed key task requirements on average.</li>
+            <li>Analyzed frontier LLM response datasets across coding, statistics, machine learning, and reasoning tasks to identify model weaknesses and evaluation patterns.</li>
+            <li>Designed and audited Python, ML, software engineering, and statistics prompts for RLHF evaluation workflows, helping improve feedback quality for model assessment.</li>
           </ul>
         </div>
       </div>
@@ -331,8 +530,8 @@
           <div class="timeline-role">M.S. Data Science</div>
           <div class="timeline-org">Seattle University · Seattle, WA</div>
           <ul class="timeline-bullets">
-            <li>Graduating June 2026. Industry capstone with Tacoma Power on architecting analytics pipelines and ML interpretability for electrical infrastructure.</li>
-            <li>Graduate coursework spans statistics, linear algebra, calculus, Python, SQL, cloud and big data systems, machine learning, and applied company-sponsored data science projects; specialized in machine learning through advanced ML, numerical methods, and independent research.</li>
+            <li>Graduating June 2026, with a focus on experimental design, machine learning, cloud data systems, and applied AI/ML workflows.</li>
+            <li>Industry capstone with Tacoma Power focused on building reusable ML analytics pipelines, interpretable modeling, and infrastructure decision-support reporting.</li>
           </ul>
         </div>
       </div>
@@ -342,8 +541,7 @@
           <div class="timeline-role">B.A. Philosophy with Distinction</div>
           <div class="timeline-org">University of British Columbia · Vancouver, BC</div>
           <ul class="timeline-bullets">
-            <li>Relevant Coursework: Linear Algebra, Calculus III, Differential Equations, Statistics, The Philosophy of Physics & Mathematics.</li>
-            <li>Thesis: From Euclidean "Space and Time" to Minkowski "Spacetime": The Mathematical Foundations of the Spacetime Interval.</li>            
+            <li>Studied analytical philosophy, mathematics, logic, statistics, and philosophy of physics; thesis examined the mathematical foundations of the spacetime interval.</li>
           </ul>
         </div>
       </div>
@@ -361,141 +559,6 @@
   </div>
 </section>
 
-<section id="projects">
-  <div class="container">
-    <p class="section-label">Projects</p>
-    <div class="projects-grid">
-
-      <a href="https://github.com/stefanind/GPT" target="_blank" class="project-card">
-        <div class="project-card-top">
-          <div class="project-name">Distributed GPT-2 Training (124M)</div>
-          <span class="project-lang">PyTorch · CUDA</span>
-        </div>
-        <div class="project-desc">GPT-2 Small implemented from scratch with modern LLM upgrades — SwiGLU, MoE, RMSNorm, KV-cache, GQA/MQA. Distributed training via PyTorch DDP on the 10B-token FineWeb-Edu dataset.</div>
-        <div class="project-highlights">
-          <span class="project-highlight">5× throughput via bfloat16, TF32, FlashAttention, fused AdamW</span>
-          <span class="project-highlight">41% → 97% GPU utilization (A100)</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/stefanind/CUDA-SGEMM" target="_blank" class="project-card">
-        <div class="project-card-top">
-          <div class="project-name">CUDA SGEMM Kernel Optimization</div>
-          <span class="project-lang">CUDA C++</span>
-        </div>
-        <div class="project-desc">Custom SGEMM kernels studying cuBLAS optimization strategies. Memory coalescing, shared-memory tiling, 2D thread block tiling, vectorized loads. Profiled with Nsight for memory bandwidth and occupancy.</div>
-        <div class="project-highlights">
-          <span class="project-highlight">1.2% → 44% of cuBLAS performance</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/stefanind/beginner-ML-deployment" target="_blank" class="project-card">
-        <div class="project-card-top">
-          <div class="project-name">ML Deployment System</div>
-          <span class="project-lang">FastAPI · MLflow · Docker</span>
-        </div>
-        <div class="project-desc">Built an end-to-end ML deployment project covering training, API serving, experiment tracking, containerization, monitoring, orchestration, load testing, and CI. Deployed a FastAPI scikit-learn service with MLflow, Docker, Prometheus, Locust, Prefect, and GitHub Actions to demonstrate lifecycle management, observability, and workflow automation.</div>
-        <div class="project-highlights">
-          <span class="project-highlight">Production-style ML</span>
-          <span class="project-highlight">Monitoring + CI</span>
-          <span class="project-highlight">End-to-end deployment</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/stefanind/World-Model-DreamerV3" target="_blank" class="project-card">
-        <div class="project-card-top">
-          <div class="project-name">DreamerV3 — World Model (WIP)</div>
-          <span class="project-lang">PyTorch</span>
-        </div>
-        <div class="project-desc">Implementing DreamerV3 from scratch in PyTorch — a model-based RL agent that learns a world model via RSSM and trains entirely in imagination. Partially built, paused while finishing grad school.</div>
-        <div class="project-highlights">
-          <span class="project-highlight">Model-based RL</span>
-          <span class="project-highlight">Work in progress</span>
-        </div>
-      </a>
-
-
-
-    </div>
-    <div style="margin-top: 1.5rem; text-align: center;">
-      <a href="https://github.com/stefanind" target="_blank" class="btn btn-outline">View all projects on GitHub →</a>
-    </div>
-  </div>
-</section>
-
-
-<section id="videos">
-  <div class="container">
-    <p class="section-label">Videos</p>
-    <p style="color: var(--ink-muted); margin-bottom: 2rem; max-width: 520px; font-size: 15px;">
-      A lecture series on LLM inference — detailed walkthroughs with code.
-    </p>
-    <div style="display: flex; flex-direction: column; gap: 1rem;">
-
-      <a href="https://www.youtube.com/watch?v=J5XmPMfrEe4&t=2s" target="_blank" class="contact-card" style="align-items: flex-start; flex-direction: column; gap: 6px; padding: 1.25rem 1.5rem;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span style="font-size: 16px;">▶</span>
-          <span style="font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint);">Lecture 1 · Transformer Review & Sampling Basics</span>
-        </div>
-        <div style="font-size: 15px; font-weight: 400; color: var(--ink);">LLM Inference Lecture 1: Transformer Review & Sampling Basics</div>
-        <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-faint);">youtube.com · detailed walkthrough with code</div>
-      </a>
-
-      <a href="https://www.youtube.com/watch?v=gFTVfpfrgqI" target="_blank" class="contact-card" style="align-items: flex-start; flex-direction: column; gap: 6px; padding: 1.25rem 1.5rem;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span style="font-size: 16px;">▶</span>
-          <span style="font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint);">Lecture 2 · KV Cache, Prefill vs Decode, GQA and MQA</span>
-        </div>
-        <div style="font-size: 15px; font-weight: 400; color: var(--ink);">LLM Inference Lecture 2: KV Cache, Prefill vs Decode, GQA and MQA</div>
-        <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-faint);">youtube.com · detailed walkthrough with code</div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- 
-<section id="blog">
-  <div class="container">
-    <p class="section-label">Writing</p>
-    <div class="post-list">
-
-      <div class="post-item" onclick="openPost('post1')">
-        <span class="post-date">Coming<br>soon</span>
-        <div>
-          <div class="post-title">What I learned building a distributed training system from scratch</div>
-          <div class="post-excerpt">The details that tutorials skip — memory management, DDP gotchas, and why your GPU utilization is probably terrible.</div>
-        </div>
-        <span class="post-tag">ml-eng</span>
-      </div>
-
-      <div class="post-item" onclick="openPost('post2')">
-        <span class="post-date">Coming<br>soon</span>
-        <div>
-          <div class="post-title">SHAP for practitioners: what it actually tells you (and what it doesn't)</div>
-          <div class="post-excerpt">Lessons from deploying explainable tree models where predictions have real infrastructure consequences.</div>
-        </div>
-        <span class="post-tag">ml</span>
-      </div>
-
-      <div class="post-item" onclick="openPost('post3')">
-        <span class="post-date">Coming<br>soon</span>
-        <div>
-          <div class="post-title">From philosophy to ML: on reasoning under uncertainty</div>
-          <div class="post-excerpt">How an undergraduate obsession with epistemology turned out to be directly useful for thinking about model uncertainty and decisions.</div>
-        </div>
-        <span class="post-tag">reflection</span>
-      </div>
-
-    </div>
-
-    <div class="blog-cta">
-      <p>// posts coming soon </p>
-      <a href="#" onclick="return false;" class="btn btn-outline">View all posts →</a>
-    </div>
-  </div>
-</section> -->
 
 
 <section id="outside-terminal">
@@ -521,21 +584,21 @@
           <div class="contact-handle">stefanindic@gmail.com</div>
         </div>
       </a>
-      <a href="https://github.com/stefanind" target="_blank" class="contact-card">
+      <a href="https://github.com/stefanind" target="_blank" rel="noopener noreferrer" class="contact-card">
         <span class="contact-icon">⌥</span>
         <div>
           <div class="contact-platform">GitHub</div>
           <div class="contact-handle">github.com/stefanind</div>
         </div>
       </a>
-      <a href="https://linkedin.com/in/stefanindic" target="_blank" class="contact-card">
+      <a href="https://linkedin.com/in/stefanindic" target="_blank" rel="noopener noreferrer" class="contact-card">
         <span class="contact-icon">◈</span>
         <div>
           <div class="contact-platform">LinkedIn</div>
           <div class="contact-handle">linkedin.com/in/stefanindic</div>
         </div>
       </a>
-      <a href="https://youtube.com/@stefanindic4908" target="_blank" class="contact-card">
+      <a href="https://youtube.com/@stefanindic4908" target="_blank" rel="noopener noreferrer" class="contact-card">
         <span class="contact-icon">▶</span>
         <div>
           <div class="contact-platform">YouTube</div>
@@ -553,76 +616,6 @@
   <span>seattle, wa · m.s. data science · graduating june 2026</span>
 </footer>
 
-<!-- MODALS -->
-<div class="modal-overlay" id="modal-post1" onclick="closeModal(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModalById('modal-post1')">✕</button>
-    <div class="modal-eyebrow">ML Engineering</div>
-    <h2 class="modal-title">What I learned building a distributed training system from scratch</h2>
-    <div class="modal-body">
-      <p>This is a placeholder — replace with your own writing when ready.</p>
-      <h3>Suggested outline</h3>
-      <p>Start with the motivation: why implement from scratch instead of using Trainer? Cover the DDP setup, the memory profiling workflow, and the specific changes that pushed GPU utilization from 41% to 97% on the A100.</p>
-      <h3>The specifics worth sharing</h3>
-      <p>Cover <code>bfloat16</code> vs <code>float16</code> trade-offs, why <code>torch.compile</code> can hurt before it helps, and what PyTorch Profiler actually surfaces that you can act on. The FlashAttention integration and fused AdamW are worth their own sections.</p>
-    </div>
-  </div>
-</div>
 
-<div class="modal-overlay" id="modal-post2" onclick="closeModal(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModalById('modal-post2')">✕</button>
-    <div class="modal-eyebrow">Machine Learning</div>
-    <h2 class="modal-title">SHAP for practitioners: what it actually tells you (and what it doesn't)</h2>
-    <div class="modal-body">
-      <p>This is a placeholder — replace with your own writing when ready.</p>
-      <h3>Suggested angle</h3>
-      <p>The Tacoma Power capstone is a compelling case study: XGBoost with SHAP making infrastructure decisions where the explanations need to satisfy electrical engineers, not just data scientists. Walk through how you framed the outputs for cross-functional stakeholders.</p>
-      <h3>The nuance worth covering</h3>
-      <p>SHAP values are local explanations, not causal claims. A concrete example where SHAP is genuinely useful, one where it's misleading, and how you communicated the difference to non-technical partners — that's the piece people actually need.</p>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-post3" onclick="closeModal(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModalById('modal-post3')">✕</button>
-    <div class="modal-eyebrow">Reflection</div>
-    <h2 class="modal-title">From philosophy to ML: on reasoning under uncertainty</h2>
-    <div class="modal-body">
-      <p>This is a placeholder — replace with your own writing when ready.</p>
-      <h3>Suggested angle</h3>
-      <p>A philosophy degree with distinction from UBC isn't a detour into data science — it's unusually good training for the parts that matter most: knowing when evidence is weak, making decisions under incomplete information, and being honest about what a model can and cannot claim.</p>
-      <h3>Why it's worth writing</h3>
-      <p>This is a strong differentiator for research-oriented roles. Most ML engineers haven't read Hume on induction or thought carefully about the epistemology of statistical inference. You have, and it's directly relevant to how you think about generalization, model failure modes, and communicating uncertainty to stakeholders.</p>
-    </div>
-  </div>
-</div>
-
-<script>
-function openPost(id) {
-  document.getElementById('modal-' + id).classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeModalById(id) {
-  document.getElementById(id).classList.remove('active');
-  document.body.style.overflow = '';
-}
-function closeModal(e) {
-  if (e.target.classList.contains('modal-overlay')) {
-    e.target.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.active').forEach(function(m) {
-      m.classList.remove('active');
-    });
-    document.body.style.overflow = '';
-  }
-});
-
-</script>
 </body>
 </html>
