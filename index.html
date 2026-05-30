@@ -123,6 +123,15 @@
   .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .project-card { padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--ink); transition: border-color 0.2s, transform 0.18s; display: flex; flex-direction: column; gap: 0.6rem; }
   .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .project-card-private {
+    cursor: default;
+  }
+  
+  .project-card-private:hover {
+    transform: none;
+    border-color: var(--border);
+    box-shadow: none;
+  }
   .project-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
   .project-lang { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); border: 1px solid var(--border); padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
   .project-name { font-size: 14px; font-weight: 500; }
@@ -344,7 +353,10 @@
   <div class="container">
     <p class="section-label">Projects</p>
     <div class="projects-grid">
-      <div class="project-card">
+     
+      <div class="project-card project-card-private">
+
+        
         <div class="project-card-top">
           <div class="project-name">Tacoma Power ML Analytics Pipeline</div>
           <span class="project-lang">Python · XGBoost · SHAP</span>
