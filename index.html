@@ -180,7 +180,7 @@
   .contact-handle { font-size: 14px; font-weight: 400; margin-top: 2px; }
 
   footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.04em; }
-  .chat-intro {
+  -intro {
     color: var(--ink-muted);
     max-width: 620px;
     font-size: 15px;
@@ -223,6 +223,10 @@
     color: var(--ink-muted);
     margin-right: 16%;
     border: 1px solid var(--border);
+  }
+ 
+  .chat-message.chat-welcome {
+    margin-right: 0;
   }
 
   .chat-message.loading {
@@ -350,20 +354,17 @@
     <p class="section-label">Digital Stefan</p>
 
     <p class="chat-intro">
-      Ask a fine-tuned version of my own Qwen LoRA model about my AI interests, projects, research taste,
-      career direction, or worldview. The model runs on a serverless GPU, so the first message may take
-      30–90 seconds to wake up.
+      I finetuned + RAG a Qwen 7B model to answer like me, sound like me, and provide knowledge about me. Go ahead and ask it anything. The model runs on a serverless GPU, so the first message may take 30–90 seconds to wake up.
     </p>
 
     <div class="chat-panel">
       <div class="chat-examples">
         <button class="chat-example" type="button">What kind of AI work is Stefan interested in?</button>
-        <button class="chat-example" type="button">Why does mechanistic interpretability matter?</button>
         <button class="chat-example" type="button">What makes a technical project meaningful?</button>
       </div>
 
       <div id="chat-box" class="chat-box">
-        <div class="chat-message assistant">
+        <div class="chat-message assistant chat-welcome">
           Ask me about Stefan's AI interests, projects, research direction, career thinking, or worldview.
         </div>
       </div>
@@ -809,7 +810,7 @@
   const chatForm = document.getElementById("chat-form");
   const chatInput = document.getElementById("chat-input");
   const chatSubmit = document.getElementById("chat-submit");
-  const exampleButtons = document.querySelectorAll(".chat-example");
+  const exampleButtons = document.querySelectorAll("-example");
 
   function addChatMessage(role, text, extraClass = "") {
     const message = document.createElement("div");
