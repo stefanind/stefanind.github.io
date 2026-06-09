@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stefan Indic — ML Engineer & Data Scientist</title>
+<title>Stefan Indic — AI/ML Engineer & Data Scientist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -180,96 +180,30 @@
   .contact-handle { font-size: 14px; font-weight: 400; margin-top: 2px; }
 
   footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.04em; }
-  -intro {
+  .chat-intro {
     color: var(--ink-muted);
-    max-width: 620px;
-    font-size: 15px;
-    margin-bottom: 1.5rem;
+    max-width: 680px;
+    font-size: 15.5px;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
   }
-
+  
   .chat-panel {
+    width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.25rem;
+    overflow: hidden;
   }
-
-  .chat-box {
-    min-height: 280px;
-    max-height: 520px;
-    overflow-y: auto;
-    padding: 0.25rem;
-    margin-bottom: 1rem;
-  }
-
-  .chat-message {
-    padding: 0.85rem 1rem;
-    border-radius: 8px;
-    margin-bottom: 0.85rem;
-    font-size: 14px;
-    line-height: 1.65;
-    white-space: pre-wrap;
-  }
-
-  .chat-message.user {
-    background: var(--accent-light);
-    color: var(--accent-text);
-    margin-left: 16%;
-    border: 1px solid #bfdbfe;
-  }
-
-  .chat-message.assistant {
-    background: var(--bg);
-    color: var(--ink-muted);
-    margin-right: 16%;
-    border: 1px solid var(--border);
-  }
- 
-  .chat-message.chat-welcome {
-    margin-right: 0;
-  }
-
-  .chat-message.loading {
-    font-style: italic;
-    color: var(--ink-faint);
-  }
-
-  .chat-form {
-    display: flex;
-    gap: 0.75rem;
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-  }
-
-  .chat-form input {
-    flex: 1;
-    padding: 0.8rem 0.9rem;
-    border: 1px solid var(--border-strong);
-    border-radius: 6px;
-    font-family: var(--sans);
-    font-size: 14px;
-    background: var(--bg);
-    color: var(--ink);
-  }
-
-  .chat-form input:focus {
-    outline: none;
-    border-color: var(--accent);
-    background: var(--surface);
-  }
-
-  .chat-form button:disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
-  }
-
+  
   .chat-examples {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.55rem;
     margin-bottom: 1rem;
   }
-
+  
   .chat-example {
     font-family: var(--mono);
     font-size: 11px;
@@ -281,30 +215,176 @@
     cursor: pointer;
     transition: all 0.2s;
   }
-
+  
   .chat-example:hover {
     border-color: var(--accent);
     color: var(--accent-text);
     background: var(--accent-light);
   }
+  
+  .chat-box {
+    min-height: 155px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+  
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .chat-message {
+    width: fit-content;
+    max-width: min(88%, 620px);
+    margin: 0;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+  }
+  
+  .chat-message.user {
+    align-self: flex-end;
+    background: var(--accent-light);
+    color: var(--accent-text);
+    border: 1px solid #bfdbfe;
+  }
+  
+  .chat-message.assistant {
+    align-self: flex-start;
+    background: var(--surface);
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+  }
+  
+  .chat-message.chat-welcome {
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+    min-height: 82px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    color: var(--ink-muted);
+  }
+  
+  .chat-message.loading {
+    font-style: italic;
+    color: var(--ink-faint);
+  }
+  
+  .chat-form {
+    display: flex;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+  
+  .chat-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    font-family: var(--sans);
+    font-size: 14px;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  
+  .chat-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+  
+  .chat-form button {
+    flex-shrink: 0;
+  }
+  
+  .chat-form button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
 
   @media (max-width: 640px) {
-    nav { padding: 0 1rem; }
-    .nav-links { gap: 1.2rem; }
-    .container { padding: 0 1.25rem; }
-    .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; }
-    .timeline-item { grid-template-columns: 1fr; gap: 0.2rem; }
-    .post-item { grid-template-columns: 60px 1fr; }
-    .post-tag { display: none; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    .chat-message.user,
-    .chat-message.assistant {
-      margin-left: 0;
-      margin-right: 0;
+    nav {
+      padding: 0 1rem;
     }
-
+  
+    .nav-links {
+      display: none;
+    }
+  
+    .container {
+      padding: 0 1.25rem;
+    }
+  
+    .about-grid,
+    .projects-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .timeline-item {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+  
+    .post-item {
+      grid-template-columns: 60px 1fr;
+    }
+  
+    .post-tag {
+      display: none;
+    }
+  
+    footer {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  
+    .chat-panel {
+      padding: 1rem;
+    }
+  
+    .chat-box {
+      min-height: 140px;
+      max-height: 420px;
+      padding: 0.85rem;
+    }
+  
+    .chat-message {
+      max-width: 100%;
+    }
+  
+    .chat-message.chat-welcome {
+      min-height: 78px;
+      padding: 0.85rem;
+    }
+  
     .chat-form {
       flex-direction: column;
+    }
+  
+    .chat-form button {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .chat-example {
+      white-space: normal;
+      text-align: left;
     }
   }
 </style>
@@ -326,17 +406,18 @@
 
 <section id="hero">
   <div class="container">
-    <p class="hero-eyebrow">Seattle, WA · M.S. Data Science · Graduating June 2026</p>
+    <p class="hero-eyebrow">Seattle, WA · M.S. Data Science · Graduated June 2026</p>
     <h1 class="hero-name">Stefan<br><em>Indic</em></h1>
 
     <p class="hero-bio">
-      I’m finishing my Master’s in Data Science, where I’ve focused on both experimentation and AI/ML. I like working on problems where data has to turn into a real decision, whether that means designing an A/B test, building a machine learning pipeline, or digging into how a model works under the hood.
+      I recently graduated from my Master's in Data Science, where I’ve focused on both experimentation and AI/ML. I like working on problems where data has to turn into a real decision, whether that means designing an A/B test, building a machine learning pipeline, or digging into how a model works under the hood.
     </p>
 
     <div class="role-pills">
       <span class="role-pill">Experimentation</span>
       <span class="role-pill">Applied ML</span>
       <span class="role-pill">AI Systems</span>
+      <span class="role-pill">AI Research</span>
     </div>
 
     <div class="hero-links">
@@ -719,7 +800,7 @@
           <div class="timeline-role">M.S. Data Science</div>
           <div class="timeline-org">Seattle University · Seattle, WA</div>
           <ul class="timeline-bullets">
-            <li>Graduating June 2026, with a focus on experimental design, machine learning, cloud data systems, and applied AI/ML workflows.</li>
+            <li>Graduated June 2026, with a focus on experimental design, machine learning, cloud data systems, and applied AI/ML workflows.</li>
             <li>Industry capstone with Tacoma Power focused on building reusable ML analytics pipelines, interpretable modeling, and infrastructure decision-support reporting.</li>
           </ul>
         </div>
@@ -810,7 +891,7 @@
   const chatForm = document.getElementById("chat-form");
   const chatInput = document.getElementById("chat-input");
   const chatSubmit = document.getElementById("chat-submit");
-  const exampleButtons = document.querySelectorAll("-example");
+  const exampleButtons = document.querySelectorAll(".chat-example");
 
   function addChatMessage(role, text, extraClass = "") {
     const message = document.createElement("div");
