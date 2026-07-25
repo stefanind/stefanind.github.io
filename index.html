@@ -50,7 +50,7 @@
     height: 56px;
   }
   .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--ink-muted); letter-spacing: 0.04em; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links { display: flex; gap: 1.4rem; list-style: none; }
   .nav-links a {
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em;
     color: var(--ink-faint); text-decoration: none; text-transform: uppercase;
@@ -217,7 +217,16 @@
   }
   .timeline-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--ink-faint); }
 
-  /* ── PROJECTS ── */
+  /* ── RESEARCH + PROJECTS ── */
+  .research-intro {
+    color: var(--ink-muted);
+    max-width: 680px;
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .research-grid,
   .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .project-card {
     padding: 1.4rem; background: var(--surface); border: 1px solid var(--border);
@@ -316,7 +325,7 @@
     nav { padding: 0 1rem; }
     .nav-links { display: none; }
     .container { padding: 0 1.25rem; }
-    .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-grid, .research-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; }
     .timeline-item { grid-template-columns: 1fr; gap: 0.2rem; }
     .post-item { grid-template-columns: 60px 1fr; }
     .post-tag { display: none; }
@@ -333,6 +342,7 @@
   <ul class="nav-links">
     <li><a href="#digital-stefan">Ask AI</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#blog">Writing</a></li>
     <li><a href="#videos">Lectures</a></li>
@@ -351,7 +361,8 @@
     <h1 class="hero-name">Stefan<br><em>Indic</em></h1>
 
     <p class="hero-bio">
-      I build production ML systems. I've <strong>fine-tuned a 7B LLM with QLoRA</strong>, optimized
+      I build production ML and agentic systems. I've built an <strong>eval-driven LangGraph support agent</strong>,
+      <strong>fine-tuned a 7B LLM with QLoRA</strong>, optimized
       <strong>CUDA kernels to 44% of cuBLAS performance</strong>, architected an
       <strong>end-to-end ML pipeline for a $15M utility portfolio</strong>, and achieved
       <strong>5× training throughput</strong> on distributed A100s for GPT-2 training. M.S. Data Science,
@@ -359,6 +370,7 @@
     </p>
 
     <div class="role-pills">
+      <span class="role-pill">Agentic Systems</span>
       <span class="role-pill">LLM Fine-tuning</span>
       <span class="role-pill">MLOps</span>
       <span class="role-pill">Distributed Training</span>
@@ -518,8 +530,51 @@
 </section>
 
 <!-- ═══════════════════════════════════
-     PROJECTS — single stefanGPT card, fixed
+     RESEARCH + PROJECTS
      ═══════════════════════════════════ -->
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">Research</p>
+    <p class="research-intro">
+      Two independent research threads around small language models: one studies optimization priors and teacher-derived structure, while the other probes how model behavior depends on input context and dependency patterns.
+    </p>
+    <div class="research-grid">
+
+      <a href="https://github.com/stefanind/research-optimization-priors" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">Optimization Priors for Small Language Models</div>
+          <span class="project-lang">PyTorch / Distillation</span>
+        </div>
+        <div class="project-desc">
+          Experiments on teacher- and data-derived priors for transformer training: data statistics, weight and subspace initialization, hidden-state geometry, transformation matching, and logit distillation.
+        </div>
+        <div class="project-highlights">
+          <span class="project-highlight">Teacher-assisted optimization</span>
+          <span class="project-highlight">Knowledge distillation</span>
+          <span class="project-highlight">Small-model training dynamics</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/stefanind/research-input-dependence" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">Input Dependence in Language Models</div>
+          <span class="project-lang">Interpretability / Transformers</span>
+        </div>
+        <div class="project-desc">
+          Research project probing how transformer representations and outputs change with input structure, context, and dependence patterns, aimed at finding better interpretability and distillation signals.
+        </div>
+        <div class="project-highlights">
+          <span class="project-highlight">Input sensitivity</span>
+          <span class="project-highlight">Mechanistic interpretability</span>
+          <span class="project-highlight">Active research</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <section id="projects">
   <div class="container">
     <p class="section-label">Projects</p>
@@ -537,6 +592,21 @@
           <span class="project-highlight">QLoRA fine-tuning on 7B model</span>
           <span class="project-highlight">RAG + vector knowledge base</span>
           <span class="project-highlight">Serverless GPU deployment</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/stefanind/customer-support-agent" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-card-top">
+          <div class="project-name">Customer Support Agent</div>
+          <span class="project-lang">LangGraph · RAG · Claude · SQLite</span>
+        </div>
+        <div class="project-desc">
+          Eval-driven customer-support agent with structured LLM routing, semantic retrieval over product documentation, and authenticated order lookups. Developed iteratively against realistic safety, privacy, routing, and regression scenarios.
+        </div>
+        <div class="project-highlights">
+          <span class="project-highlight">Agentic routing across RAG and order tools</span>
+          <span class="project-highlight">50-case product evaluation suite</span>
+          <span class="project-highlight">Authorization-aware customer data access</span>
         </div>
       </a>
 
